@@ -32,7 +32,6 @@ export class ChannelMessageHelper {
   async unsubscribeFromChannel(channel) {
     return new Promise((resolve, reject) => {
       try {
-        console.log("unsubscribing From Channel: " + channel);
         let subscription = undefined;
 
         if (this.subscriptions[channel]) {
@@ -42,13 +41,12 @@ export class ChannelMessageHelper {
         if (subscription !== undefined) {
           subscription.unsubscribe();
           subscription.on("unsubscribed", () => {
-            console.log("unsubscribing From Channel: " + channel + " success");
             resolve();
           });
         }
         resolve();
       } catch (err) {
-        console.log("unsubscribing From Channel: " + channel + " failed");
+        console.error(err);
         resolve(err);
       }
     });

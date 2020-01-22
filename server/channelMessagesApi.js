@@ -5,7 +5,7 @@ const msgHelper = new ChannelMessageHelper();
 export async function channelMessageList(req, res) {
   try {
     const { channel } = req.params;
-    const opts = { startAtSequence: 10 };
+    const opts = { startSequence: 0, StartAt: 1 };
     const messages = [];
 
     const disposer = getStanSubscription(channel, opts, (chn, msg) => {
