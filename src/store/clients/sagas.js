@@ -1,7 +1,7 @@
 import * as effects from "@redux-saga/core/effects";
 
 import * as actions from "./actions";
-import { CLIENTS_REQUEST } from "./types";
+import { CLIENT_REQUEST } from "./types";
 import { getClients } from "../../utils/stanApi";
 
 function* handleGetClients(action) {
@@ -16,7 +16,7 @@ function* handleGetClients(action) {
 }
 
 function* watchClientsRequest() {
-  yield effects.takeEvery(CLIENTS_REQUEST, handleGetClients);
+  yield effects.takeEvery(CLIENT_REQUEST, handleGetClients);
 }
 
 export function* ClientSaga() {
