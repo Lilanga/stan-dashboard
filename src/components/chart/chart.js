@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
+import { messageSubscriptionRequest } from "../../store/messages";
 import {
   LineChart,
   Line,
@@ -29,6 +31,16 @@ const data = [
 
 export default function Chart() {
   const theme = useTheme();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      messageSubscriptionRequest({
+        channel: "coordinator-timeStamps-Ready",
+        opts: { startSequence: 0, StartAt: 1 }
+      })
+    );
+  }, []);
 
   return (
     <React.Fragment>
