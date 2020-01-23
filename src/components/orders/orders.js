@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -6,6 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { clientsRequest } from "../../store/clients";
 import Title from "../title/title";
 
 // Generate Order Data
@@ -68,9 +70,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function Orders() {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clientsRequest({ params: { subs: 1 } }));
+  }, []);
+
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent messages</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -95,7 +104,7 @@ export default function Orders() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
+          See more messages
         </Link>
       </div>
     </React.Fragment>

@@ -6,14 +6,22 @@ import Layout from "./components/layout/layout";
 import configureStore from "./store/configureStore";
 
 const initialState = {
-  messages: {
+  messageStore: {
     messages: [],
     isLoading: false,
     error: null,
     isSocketOpen: false
   },
-  clients: {},
-  channels: {}
+  clientStore: {
+    clients: {},
+    isLoading: false,
+    error: {}
+  },
+  channelStore: {
+    channels: {},
+    isLoading: false,
+    error: {}
+  }
 };
 const store = configureStore(initialState);
 const root = document.getElementById("root");

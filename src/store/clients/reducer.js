@@ -1,6 +1,6 @@
 import * as types from "./types";
 
-export const INITIAL_STATE = { clients: {}, isLoading: false, error: null };
+export const INITIAL_STATE = { clients: {}, isLoading: false, error: {} };
 
 export function clientsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {

@@ -1,35 +1,29 @@
-import callAPI from "./callApi";
+import { callAPI } from "./callAPI";
 
-export function getServers() {
-  return callAPI("get", "", "/streaming/serverz").then(resp => resp.data);
+export async function getServers() {
+  return await callAPI("get", "", "/streaming/serverz");
 }
 
-export function getStores() {
-  return callAPI("get", "", "/streaming/storez").then(resp => resp.data);
+export async function getStores() {
+  return await callAPI("get", "", "/streaming/storez");
 }
 
-export function getClients() {
-  return callAPI("get", "", "/streaming/clientsz", { subs: 1 }).then(
-    resp => resp.data
-  );
+export async function getClients(params) {
+  return await callAPI("get", "", "/streaming/clientsz", params);
 }
 
-export function getChannels() {
-  return callAPI("get", "", "/streaming/channelsz", { subs: 1 }).then(
-    resp => resp.data
-  );
+export async function getChannels(params) {
+  return await callAPI("get", "", "/streaming/channelsz", params);
 }
 
-export function getMessages(channel) {
-  return callAPI("get", "", `/api/channel/${channel}/message`).then(
-    resp => resp.data
-  );
+export async function getMessages(channel) {
+  return await callAPI("get", "", `/api/channel/${channel}/message`);
 }
 
-export function getServerConfig() {
-  return callAPI("get", "/api/server").then(resp => resp.data);
+export async function getServerConfig() {
+  return await callAPI("get", "/api/server");
 }
 
 export async function updateServerConfig(data) {
-  return callAPI("post", "", "/api/server", data).then(resp => resp.data);
+  return await callAPI("post", "", "/api/server", data);
 }

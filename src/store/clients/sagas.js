@@ -6,7 +6,7 @@ import { getClients } from "../../utils/stanApi";
 
 function* handleGetClients(action) {
   try {
-    const res = yield effects.call(getClients);
+    const res = yield effects.call(getClients, action.payload.params);
     if (res) {
       yield effects.put(actions.clientsRequestSuccess(res));
     }

@@ -1,6 +1,6 @@
 import * as types from "./types";
 
-export const INITIAL_STATE = { channels: {}, isLoading: false, error: null };
+export const INITIAL_STATE = { channels: {}, isLoading: false, error: {} };
 
 export function channelsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {

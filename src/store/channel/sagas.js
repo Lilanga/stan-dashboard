@@ -6,7 +6,7 @@ import { getChannels } from "../../utils/stanApi";
 
 function* handleGetChannels(action) {
   try {
-    const res = yield effects.call(getChannels());
+    const res = yield effects.call(getChannels, action.payload.params);
     if (res) {
       yield effects.put(actions.channelRequestSuccess(res));
     }

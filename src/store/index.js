@@ -5,9 +5,9 @@ import { channelsReducer, channelSaga } from "./channel";
 import { clientsReducer, ClientSaga } from "./clients";
 
 export const rootReducer = combineReducers({
-  messages: messagesReducer,
-  clients: clientsReducer,
-  channels: channelsReducer
+  messageStore: messagesReducer,
+  clientStore: clientsReducer,
+  channelStore: channelsReducer
 });
 
 export function* rootSaga() {

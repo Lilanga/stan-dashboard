@@ -12,9 +12,9 @@ import {
 } from "recharts";
 import Title from "../title/title";
 
-// Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
+// Generate sample Data
+function createData(time, messages) {
+  return { time, messages };
 }
 
 const data = [
@@ -44,7 +44,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Message Throughput</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}
@@ -62,14 +62,14 @@ export default function Chart() {
               position="left"
               style={{ textAnchor: "middle", fill: theme.palette.text.primary }}
             >
-              Sales ($)
+              Count
             </Label>
           </YAxis>
           <Line
             type="monotone"
-            dataKey="amount"
+            dataKey="messages"
             stroke={theme.palette.primary.main}
-            dot={false}
+            dot={true}
           />
         </LineChart>
       </ResponsiveContainer>
