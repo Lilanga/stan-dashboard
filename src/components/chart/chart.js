@@ -12,24 +12,8 @@ import {
 } from "recharts";
 import Title from "../title/title";
 
-// Generate sample Data
-function createData(time, messages) {
-  return { time, messages };
-}
-
-const data = [
-  createData("00:00", 0),
-  createData("03:00", 300),
-  createData("06:00", 600),
-  createData("09:00", 800),
-  createData("12:00", 1500),
-  createData("15:00", 2000),
-  createData("18:00", 2400),
-  createData("21:00", 2400),
-  createData("24:00", undefined)
-];
-
-export default function Chart() {
+export default function Chart(props) {
+  const { data, title } = props;
   const theme = useTheme();
   const dispatch = useDispatch();
 
@@ -44,7 +28,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Message Throughput</Title>
+      <Title>{title}</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}

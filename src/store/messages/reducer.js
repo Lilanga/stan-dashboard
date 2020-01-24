@@ -3,7 +3,7 @@ import * as types from "./types";
 export const INITIAL_STATE = {
   messages: [],
   isLoading: false,
-  error: null,
+  error: {},
   isSocketOpen: false
 };
 
@@ -18,7 +18,7 @@ export function messagesReducer(state = INITIAL_STATE, action) {
     case types.MESSAGE_SUBSCRIPTION_RECEIVED:
       return {
         ...state,
-        messages: [...state.messages, action.payload],
+        messages: [].concat(state.messages, [action.payload]),
         isLoading: false
       };
     case types.MESSAGE_REQUEST_FAILED:

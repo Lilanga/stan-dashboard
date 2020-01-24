@@ -9,38 +9,45 @@ import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import DeviceHubIcon from "@material-ui/icons/DeviceHub";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
+import DnsIcon from "@material-ui/icons/Dns";
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button component="a" href="/">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="/messages">
       <ListItemIcon>
         <MessageIcon />
       </ListItemIcon>
       <ListItemText primary="Messages" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="/channels">
       <ListItemIcon>
         <SwapHorizIcon />
       </ListItemIcon>
       <ListItemText primary="Channels" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="/clients">
       <ListItemIcon>
         <ContactsIcon />
       </ListItemIcon>
       <ListItemText primary="Clients" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="/subscriptions">
       <ListItemIcon>
         <DeviceHubIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Subscriptions" />
+    </ListItem>
+    <ListItem button component="a" href="/configurations">
+      <ListItemIcon>
+        <DnsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Configurations" />
     </ListItem>
   </div>
 );
