@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { useSelector } from "react-redux";
 import Chart from "../chart/chart";
-import Deposits from "../deposits/deposits";
-import Orders from "../orders/orders";
+import InformationWidget from "../information/informationWidget";
+import RecentData from "../recentData/recentData";
 import Footer from "../footer/footer";
 import { getMessageData } from "../../utils/dataTransformUtils";
 import { selectAllMessages } from "../../utils/selectorUtils";
@@ -43,16 +43,16 @@ export default function Dashboard() {
             <Chart data={timeSeriesData} title="Message Throughput" />
           </Paper>
         </Grid>
-        {/* Recent Deposits */}
+        {/* Information Widget */}
         <Grid item xs={12} md={4} lg={3}>
           <Paper className={fixedHeightPaper}>
-            <Deposits />
+            <InformationWidget />
           </Paper>
         </Grid>
-        {/* Recent Orders */}
+        {/* Recent Data */}
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Orders />
+            <RecentData />
           </Paper>
         </Grid>
       </Grid>

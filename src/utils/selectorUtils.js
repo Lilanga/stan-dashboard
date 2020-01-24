@@ -7,6 +7,15 @@ export const selectAllMessages = createSelector(
   messages => messages
 );
 
+export const selectLastFiveMessages = createSelector(selectMessages, messages =>
+  messages.slice(Math.max(messages.length - 5, 1))
+);
+
+export const selectAllMessagesCount = createSelector(
+  selectMessages,
+  messages => messages.length
+);
+
 export const selectChannelMessages = createSelector(
   selectMessages,
   (_, channel) => channel,

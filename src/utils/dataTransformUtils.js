@@ -3,9 +3,6 @@ import moment from "moment-timezone";
 export const getMessageData = messages => {
   let msg = messages;
   let msgCounts = [];
-  if (messages.length > 60) {
-    msg = messages.slice(messages.length - 60);
-  }
 
   let msgGroup = msg.reduce(function(r, a) {
     var round = 1000 * 60 * 5;
@@ -13,7 +10,6 @@ export const getMessageData = messages => {
     var rounded = new Date(Math.round(time.valueOf() / round) * round);
     var formatted = moment(rounded).format("hh:mm a");
 
-    // var formatted = time.format('YYYY-MM-DD hh:mm a')
     r[formatted] = r[formatted] || [];
     r[formatted].push(a);
     return r;
@@ -29,6 +25,10 @@ export const getMessageData = messages => {
       messages: item[1].length
     });
   });
+
+  if (msgCounts.length > 100) {
+    msgCounts = msgCounts.slice(msgCounts.length - 100);
+  }
 
   return msgCounts;
 };
