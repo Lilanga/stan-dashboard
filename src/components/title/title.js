@@ -13,3 +13,15 @@ export default function Title(props) {
 Title.propTypes = {
   children: PropTypes.node
 };
+
+export function SubTitle(props) {
+  return (
+    <Typography component="h5" variant="h6" color="primary">
+      {props.children}
+    </Typography>
+  );
+}
+
+SubTitle.propTypes = {
+  children: PropTypes.node
+};

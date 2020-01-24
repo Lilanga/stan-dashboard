@@ -3,18 +3,24 @@ import { useDispatch } from "react-redux";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 import { useSelector } from "react-redux";
 import moment from "moment-timezone";
-import { selectAllMessagesCount } from "../../utils/selectorUtils";
+import {
+  selectAllMessagesCount,
+  selectAllClients,
+  selectAllChannels
+} from "../../utils/selectorUtils";
 import { channelRequest } from "../../store/channel";
-import Title from "../title/title";
+import { SubTitle } from "../title/title";
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
 const useStyles = makeStyles({
-  depositContext: {
+  messageContext: {
     flex: 1
   }
 });
@@ -22,6 +28,7 @@ const useStyles = makeStyles({
 export default function InformationWidget() {
   const classes = useStyles();
   const messagesCount = useSelector(selectAllMessagesCount);
+  const channels = useSelector(selectAllChannels);
   const dispatch = useDispatch();
   const [lastUpdated, setLastUpdated] = useState("--");
 
@@ -30,23 +37,54 @@ export default function InformationWidget() {
   }, []);
 
   useEffect(() => {
-    setLastUpdated(moment(new Date()).format("LLLL"));
+    setLastUpdated(moment(new Date()).format("LLL"));
   }, [messagesCount]);
 
   return (
-    <React.Fragment>
-      <Title>Total Messages</Title>
-      <Typography component="p" variant="h4">
-        {messagesCount}
-      </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
-        on {lastUpdated}
-      </Typography>
-      <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View messages
-        </Link>
-      </div>
-    </React.Fragment>
+    <Grid display="flex" flexDirection="row" container spacing={3}>
+      <Grid justify="center" item>
+        <Box>
+          <SubTitle>Total Messages</SubTitle>
+          <Typography component="p" variant="h5">
+            {messagesCount}
+          </Typography>
+          <Typography
+            color="textSecondary"
+            className={classes.messageContext}
+            variant="caption"
+            display="block"
+          >
+            on {lastUpdated}
+          </Typography>
+        </Box>
+        <Box>
+          <Link color="primary" href="#" onClick={preventDefault}>
+            View messages
+          </Link>
+        </Box>
+      </Grid>
+
+      <Grid justify="center" item>
+        <Box>
+          <SubTitle>Total Channels</SubTitle>
+          <Typography component="p" variant="h5">
+            {channels !== [] ? channels.count : 0}
+          </Typography>
+          <Typography
+            color="textSecondary"
+            className={classes.messageContext}
+            variant="caption"
+            display="block"
+          >
+            on {channels !== [] ? moment(channels.now).format("LLL") : "--"}
+          </Typography>
+        </Box>
+        <Box>
+          <Link color="primary" href="#" onClick={preventDefault}>
+            View channels
+          </Link>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }

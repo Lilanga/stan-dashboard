@@ -8,7 +8,6 @@ import logo from "./electrify-logo.svg";
 
 const useStyles = makeStyles(theme => ({
   sponsorLink: {
-    padding: theme.spacing(2),
     display: "block",
     color: "inherit",
     textDecoration: "none"
@@ -22,14 +21,14 @@ const useStyles = makeStyles(theme => ({
   footer: {
     position: "relative",
     bottom: 0,
-    marginTop: "calc(5% + 25px)"
+    marginTop: "calc(1% + 5px)"
   }
 }));
 
 export default function Footer() {
   const classes = useStyles();
   return (
-    <Box pt={4} className={classes.footer}>
+    <Box pt={1} className={classes.footer}>
       <Copyright />
       <Typography variant="body2" color="textSecondary" align="center">
         {" "}
