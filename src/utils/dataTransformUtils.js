@@ -1,5 +1,6 @@
 import moment from "moment-timezone";
 
+// for recharts
 export const getMessageData = messages => {
   let msg = messages;
   let msgCounts = [];
@@ -31,4 +32,18 @@ export const getMessageData = messages => {
   }
 
   return msgCounts;
+};
+
+// for series charts
+export const getSeriesMessageData = messages => {
+  const messageData = getMessageData(messages);
+  const time = messageData.map(message=>message.time);
+  const msgs = messageData.map(message=>message.messages);
+
+  const data = {
+      labels: time,
+      series: [msgs]
+  };
+
+  return data;
 };

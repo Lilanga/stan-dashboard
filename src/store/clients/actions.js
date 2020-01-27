@@ -11,3 +11,7 @@ export function clientsRequestFailed(payload) {
 export function clientsRequest(payload) {
   return { type: types.CLIENT_REQUEST, payload };
 }
+
+export function clientsSubscriptionRequest() {
+  return { type: types.CLIENT_REQUEST, params: { subs: 1 } };
+}

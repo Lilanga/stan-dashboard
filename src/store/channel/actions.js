@@ -11,3 +11,7 @@ export function channelRequestFailed(payload) {
 export function channelRequest(payload) {
   return { type: types.CHANNEL_REQUEST, payload };
 }
+
+export function channelSubscriptionRequest() {
+  return { type: types.CHANNEL_REQUEST, params: { subs: 1 } };
+}

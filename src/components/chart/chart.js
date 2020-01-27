@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Box from '@material-ui/core/Box';
 import { useTheme } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { messageSubscriptionRequest } from "../../store/messages";
@@ -10,10 +11,9 @@ import {
   Label,
   ResponsiveContainer
 } from "recharts";
-import Title from "../title/title";
 
 export default function Chart(props) {
-  const { data, title } = props;
+  const { data } = props;
   const theme = useTheme();
   const dispatch = useDispatch();
 
@@ -27,9 +27,8 @@ export default function Chart(props) {
   }, []);
 
   return (
-    <React.Fragment>
-      <Title>{title}</Title>
-      <ResponsiveContainer>
+    <Box height={280}>
+    <ResponsiveContainer>
         <LineChart
           data={data}
           margin={{
@@ -56,7 +55,7 @@ export default function Chart(props) {
             dot={true}
           />
         </LineChart>
-      </ResponsiveContainer>
-    </React.Fragment>
+        </ResponsiveContainer>
+    </Box>
   );
 }

@@ -5,7 +5,7 @@ export async function callAPI(method, host, path, data) {
     url += (url.indexOf("?") === -1 ? "?" : "&") + getQueryString(data);
   }
 
-  return fetch(url + path, {
+  return fetch(url, {
     method,
     headers: {
       Accept: "application/json",

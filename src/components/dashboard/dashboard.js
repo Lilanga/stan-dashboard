@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import clsx from "clsx";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { useSelector } from "react-redux";
-import Chart from "../chart/chart";
+import ChartWidget from "../chart/chartWidget";
 import InformationWidget from "../information/informationWidget";
-import RecentData from "../recentData/recentData";
+import RecentMessagesWidget from "../recentMessages/recentMessagesWidget";
 import Footer from "../footer/footer";
 import { getMessageData } from "../../utils/dataTransformUtils";
 import { selectAllMessages } from "../../utils/selectorUtils";
@@ -27,33 +25,28 @@ let timeSeriesData = [];
 
 export default function Dashboard() {
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const messages = useSelector(selectAllMessages);
+  const [messagesUpdated, setMessagesUpdated] = useState(new Date());
 
   useEffect(() => {
     timeSeriesData = getMessageData(messages);
+    setMessagesUpdated(new Date());
   }, [messages]);
 
   return (
     <>
       <Grid container spacing={3}>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
-          <Paper className={fixedHeightPaper}>
-            <Chart data={timeSeriesData} title="Message Throughput" />
-          </Paper>
-        </Grid>
         {/* Information Widget */}
-        <Grid item xs={12} md={4} lg={3}>
-          <Paper className={fixedHeightPaper}>
+        <Grid item xs={12} md={12} lg={12}>
             <InformationWidget />
-          </Paper>
         </Grid>
-        {/* Recent Data */}
+        {/* Chart */}
+        <Grid item xs={12} md={12} lg={12}>
+            <ChartWidget data={timeSeriesData} title="Messages Throughput" updatedAt={messagesUpdated} />
+        </Grid>
+        {/* Recent messages */}
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <RecentData />
-          </Paper>
+            <RecentMessagesWidget title={"Recent messages"}/>
         </Grid>
       </Grid>
       <Footer />

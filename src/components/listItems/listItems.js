@@ -4,7 +4,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import MessageIcon from "@material-ui/icons/Message";
+import MessageIcon from '@material-ui/icons/Note';
 import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import DeviceHubIcon from "@material-ui/icons/DeviceHub";

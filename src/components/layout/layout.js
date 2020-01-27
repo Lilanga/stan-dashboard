@@ -9,7 +9,7 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -101,7 +101,7 @@ export default function Layout() {
   };
 
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider theme={createMuiTheme()}>
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
