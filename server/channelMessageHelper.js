@@ -1,4 +1,4 @@
-import { getStanInstance } from "./stan";
+import { getStanInstance } from "./utils/stan";
 const Promise = require("bluebird");
 
 export class ChannelMessageHelper {

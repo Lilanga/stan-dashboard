@@ -1,4 +1,4 @@
-import { callAPI } from "./callAPI";
+import { callAPI } from "./callApi";
 
 export async function getServers() {
   return await callAPI("get", "", "/streaming/serverz");

@@ -1,0 +1,9 @@
+.git
+Dockerfile
+.DS_Store
+.gitignore
+.eslintrc.json
+.cache
+README.md
+node_modules
+dist

@@ -1,4 +1,4 @@
-import { ChannelMessageHelper } from "./utils/channelMessageHelper";
+import { ChannelMessageHelper } from "./channelMessageHelper";
 const Promise = require("bluebird");
 const msgHelper = new ChannelMessageHelper();
 

@@ -1,4 +1,4 @@
-import { ChannelMessageHelper } from "./utils/ChannelMessageHelper";
+import { ChannelMessageHelper } from "./channelMessageHelper";
 
 export class StanToSocketBridge {
   constructor(client) {
