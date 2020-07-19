@@ -31,7 +31,7 @@
     "clsx": "^1.0.4",
     "express": "^4.17.1",
     "http-proxy-middleware": "^0.20.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment-timezone": "^0.5.27",
     "node-nats-streaming": "^0.2.6",
     "prop-types": "^15.7.2",
