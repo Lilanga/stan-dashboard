@@ -13,7 +13,7 @@ COPY ./server ./server
 RUN yarn build-server
 
 #runtime image
-FROM node:12.16.1-alpine3.11
+FROM node:12.22.6-alpine3.11
 
 WORKDIR /app
 
