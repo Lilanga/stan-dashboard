@@ -32,7 +32,7 @@
     "express": "^4.17.1",
     "http-proxy-middleware": "^0.20.0",
     "lodash": "^4.17.15",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "node-nats-streaming": "^0.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
