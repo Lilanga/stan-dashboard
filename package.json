@@ -29,7 +29,7 @@
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "clsx": "^1.0.4",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "http-proxy-middleware": "^0.20.0",
     "lodash": "^4.17.15",
     "moment-timezone": "^0.5.27",
